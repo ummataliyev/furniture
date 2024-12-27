@@ -13,7 +13,7 @@ class ProductGallery(serializers.ModelSerializer):
 
 
 class Product(serializers.ModelSerializer):
-    category = Category(read_only=True)
+    category = Category(read_only=True, source='category_id')
     gallery = ProductGallery(many=True, read_only=True)
 
     class Meta:

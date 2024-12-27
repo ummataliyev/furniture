@@ -7,5 +7,5 @@ class Category(serializers.ModelSerializer):
         model = models.Category
         fields = (
             'id',
-            'name'
+            'name',
         )
