@@ -14,4 +14,4 @@ echo -e "${YELLOW}Applying database migrations...${NC}"
 python3 manage.py migrate
 
 echo -e "${GREEN}Starting the server...${NC}"
-python3 manage.py runserver
+python3 manage.py runserver 0.0.0.0:${SERVICE_PORT}
