@@ -4,8 +4,8 @@ the basic admin interface.
 from django.utils.translation import gettext_lazy as _
 
 SITE = {
-    "SITE_TITLE": _("Мебель"),
-    "SITE_HEADER": _("Мебель"),
+    "SITE_TITLE": _("Aрзон Мебеллар"),
+    "SITE_HEADER": _("Aрзон Мебеллар"),
     "SHOW_HISTORY": True,
     "SITE_SYMBOL": "shelves",
     "COLORS": {
