@@ -21,9 +21,7 @@ class Product(models.Model):
         verbose_name="Изображение продукта"
     )
     description = models.TextField(verbose_name="Описание продукта")
-    price = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
+    price = models.IntegerField(
         verbose_name="Цена продукта"
     )
     video_link = models.URLField(
