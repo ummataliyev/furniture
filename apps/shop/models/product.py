@@ -26,7 +26,11 @@ class Product(models.Model):
         decimal_places=2,
         verbose_name="Цена продукта"
     )
-    video_link = models.URLField(verbose_name="Ссылка на видео")
+    video_link = models.URLField(
+        verbose_name="Ссылка на видео",
+        null=True,
+        blank=True
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
