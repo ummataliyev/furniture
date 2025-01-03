@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     build: .
@@ -13,6 +11,8 @@ services:
       - "${SERVICE_PORT}:${SERVICE_PORT}"
     depends_on:
       - db
+    networks:
+      - web-network # Ensure web container is on the same network
     environment:
       VIRTUAL_HOST: ${DOMAIN},www.${DOMAIN}
       VIRTUAL_PORT: ${SERVICE_PORT}
@@ -28,16 +28,18 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5434:5432"
+    networks:
+      - web-network # Ensure db container is also on the network
 
   nginx:
     image: jwilder/nginx-proxy
     container_name: nginx
     networks:
-      - web-network
+      - web-network # Ensure nginx container is on the same network
     environment:
-      - DEFAULT_HOST=arzon-mebellar.uz
+      - DEFAULT_HOST=${DOMAIN}
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro  # Docker socket for dynamic proxying
+      - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
       - "80:80"
       - "8443:443"
