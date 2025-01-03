@@ -38,6 +38,7 @@ services:
       - web-network # Ensure nginx container is on the same network
     environment:
       - DEFAULT_HOST=${DOMAIN}
+      - DISABLE_HTTP_REDIRECT=true
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
