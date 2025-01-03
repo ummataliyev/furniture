@@ -35,12 +35,12 @@ services:
     networks:
       - web-network
     environment:
-      - DEFAULT_HOST=${DOMAIN}
+      - DEFAULT_HOST=arzon-mebellar.uz
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro  # Docker socket for dynamic proxying
     ports:
       - "80:80"
-      - "443:443"
+      - "8443:443"
     restart: unless-stopped
 
   certbot:
