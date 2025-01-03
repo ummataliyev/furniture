@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn daemon for Furniture app
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/furniture
+ExecStart=/var/www/furniture/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/furniture.sock src.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
